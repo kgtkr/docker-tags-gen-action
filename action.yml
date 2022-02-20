@@ -1,0 +1,12 @@
+name: docker-tags-gen-action
+description: Generate tags for docker images
+inputs:
+  name:
+    description: Name of the docker image
+    required: true
+outputs:
+  tags:
+    description: generated tags
+runs:
+  using: 'node16'
+  main: 'index.js'
