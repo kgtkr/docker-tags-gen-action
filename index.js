@@ -17,13 +17,13 @@ tags.push(ref);
 
 const now = new Date();
 const timestamp =
-  now.getUTCFullYear().toString().leftPad(4, "0") +
-  (now.getUTCMonth() + 1).toString().leftPad(2, "0") +
-  now.getUTCDate().toString().leftPad(2, "0") +
-  now.getUTCHours().toString().leftPad(2, "0") +
-  now.getUTCMinutes().toString().leftPad(2, "0") +
-  now.getUTCSeconds().toString().leftPad(2, "0") +
-  now.getUTCMilliseconds().toString().leftPad(3, "0");
+  now.getUTCFullYear().toString().padStart(4, "0") +
+  (now.getUTCMonth() + 1).toString().padStart(2, "0") +
+  now.getUTCDate().toString().padStart(2, "0") +
+  now.getUTCHours().toString().padStart(2, "0") +
+  now.getUTCMinutes().toString().padStart(2, "0") +
+  now.getUTCSeconds().toString().padStart(2, "0") +
+  now.getUTCMilliseconds().toString().padStart(3, "0");
 const shortSha = github.context.sha.substring(0, 7);
 tags.push(`${timestamp}-${ref}-${shortSha}`);
 core.setOutput("tags", tags.map((tag) => `${name}:${tag}`).join(","));
