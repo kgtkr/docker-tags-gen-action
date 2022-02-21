@@ -26,4 +26,6 @@ const timestamp =
   now.getUTCMilliseconds().toString().padStart(3, "0");
 const shortSha = github.context.sha.substring(0, 7);
 tags.push(`${timestamp}-${ref}-${shortSha}`);
-core.setOutput("tags", tags.map((tag) => `${name}:${tag}`).join(","));
+const result = tags.map((tag) => `${name}:${tag}`).join(",");
+console.log("Generated tags:", result);
+core.setOutput("tags", result);
