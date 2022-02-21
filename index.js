@@ -25,5 +25,5 @@ const timestamp =
   now.getUTCSeconds().toString().leftPad(2, "0") +
   now.getUTCMilliseconds().toString().leftPad(3, "0");
 const shortSha = github.context.sha.substring(0, 7);
-tags.push(`${ref}-${shortSha}-${timestamp}`);
+tags.push(`${timestamp}-${ref}-${shortSha}`);
 core.setOutput("tags", tags.map((tag) => `${name}:${tag}`).join(","));
