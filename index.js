@@ -26,9 +26,10 @@ if (github.context.ref.startsWith("refs/heads/")) {
     now.getUTCMilliseconds().toString().padStart(3, "0");
   const shortSha = github.context.sha.substring(0, 7);
   if (ref === "master" || ref === "main") {
-    tags.push(`${timestamp}-${shortSha}`);
+    tags.push("latest");
   } else {
     tags.push(`${timestamp}-${shortSha}-${ref}`);
+    tags.push(`${timestamp}-${shortSha}`);
   }
 }
 
