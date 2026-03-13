@@ -27,10 +27,9 @@ if (github.context.ref.startsWith("refs/heads/")) {
   const shortSha = github.context.sha.substring(0, 7);
   if (ref === "master" || ref === "main") {
     tags.push("latest");
-  } else {
-    tags.push(`${timestamp}-${shortSha}-${ref}`);
-    tags.push(`${timestamp}-${shortSha}`);
   }
+  tags.push(`${timestamp}-${shortSha}-${ref}`);
+  tags.push(`${timestamp}-${shortSha}`);
 }
 
 const result = tags.map((tag) => `${name}:${tag}`).join(",");
