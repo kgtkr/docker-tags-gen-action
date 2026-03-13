@@ -8,5 +8,5 @@ outputs:
   tags:
     description: generated tags
 runs:
-  using: 'node16'
+  using: 'node24'
   main: 'index.js'
